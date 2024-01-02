@@ -1,0 +1,517 @@
+html, body {
+    height: 100%;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 12px; 
+  }
+
+#id{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+
+}
+
+#id h1{
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+#id p{
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+#login input{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+}
+
+#login-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+#signup{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+#signup input{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+}
+
+#signup-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+#home-container{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    width: 100%;
+}
+
+#home-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5) inset;
+    background-color: #f4f4f4;
+    padding: 10%;
+}
+
+#home-notifications{
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    height: 20vh;
+    width: 70%;
+
+}
+
+#artwork-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+    height: 30%;
+    width: 20%;
+    margin-bottom: 5%;
+    padding: 5%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5) inset;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+#artwork-container:hover{
+    box-shadow: 0 0 15px rgba(0,0,0,0.5) inset;
+}
+
+#gallery-artwork-image{
+    height: 20vh;
+    width: 20vw;
+    object-fit: cover;
+}
+
+#gallery-artwork-image-container{
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+#artworks-container{
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+
+    width: 100%;
+}
+
+#like-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+#unlike-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    width: 100%;
+}
+
+#gallery-container{
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+#gallery-next-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: calc(5px + 1vw);
+    width: 10%;
+}
+
+#gallery-prev-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    font-size: calc(5px + 1vw);
+    width: 10%;
+}
+
+#profile{
+    margin-left:100px;
+}
+
+#profile-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+
+
+}
+
+#profile-workshop-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    width: 50%;
+    border: 3px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+#profile-upgrade-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    width: 50%;
+    border: 3px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+#profile-upgrade-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+#profile-downgrade-button{
+    padding: 0.5rem;
+    border: 2px solid red;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: red;
+    cursor: pointer;
+    width: 100%;
+}
+
+#liked-artwork-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+}
+
+#liked-artwork-image{
+    height: 15vh;
+    width: 15vh;
+    object-fit: cover;
+}
+
+#follow-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#unfollow-button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+#createWorkshop{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#createWorkshop input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+}
+
+#createWorkshop button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#workshop button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#notifications-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    height: 100%;
+    width: 100%;
+}
+
+#notification{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 5%;
+    width:30%;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+#search-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    height: 100%;
+    width: 100%;
+}
+
+#search-results-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    height: 100%;
+    width: 100%;
+}
+#search-artwork-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5%;
+    width:50%;
+    height: 15vh;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#search-artwork-image{
+    height: 15vh;
+    width: 15vh;
+    object-fit: cover;
+}
+
+#search-container input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+}
+
+#search-container button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#create-artwork{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-artwork input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+}
+
+#create-artwork button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#create-artwork textarea{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+}
+
+#art{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    height: 100%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#artwork-img-container{
+    width:100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5) inset;
+    margin-top: 100px;
+}
+
+#artwork-info{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    height: 100%;
+    padding: 20px;
+}
+
+#artwork-info button{
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+}
+
+#artwork-info h1{
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+#artwork-info p{
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+#artwork-info input{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+}
+
+#reviews-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+}
+
+#review{
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}

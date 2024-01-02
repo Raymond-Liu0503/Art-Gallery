@@ -1,0 +1,22 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/styles.css')
+    script(src='/client.js')
+  body
+    div(id='navbar') 
+      if !user
+        a(href='/login') Login
+      else
+        a(href='/') Home
+        if user && user.accountType === 'artist'
+          a(href='/gallery') Gallery
+          a(href='/create') Add Art
+          a(href='/notifications') Notifications          
+        else 
+          a(href='/gallery') Gallery
+          a(href='/notifications') Notifications
+        a(href='/search') Search
+        a(href=`/user/${user.username}`) Profile
+        a(href='/login', onclick='logout()') Logout
+    block content

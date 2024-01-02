@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+    div(id='workshop')
+        h1 #{workshop.Title}
+        p  #{workshop.Description}
+        
+        if user && user.accountType === 'artist' && workshop.Artist === user.username
+            h3 Enrolled:
+            each student in workshop.enrollments
+                a(href="javascript:void(0)", onclick=`goToArtist('${student.username}'); return false;`, style='text-decoration: underline; font-size:calc(6px + 1vw)') #{student.username}
+        else if user && user.accountType === 'artist' && workshop.Artist !== user.username
+            if user && user.joinedWorkshops.includes(workshop._id)
+                button(onclick=`leaveWorkshop('${workshop._id}')`) Leave
+            else
+                button(onclick=`joinWorkshop('${workshop._id}')`) Enroll
+        else if user && user.accountType === 'patron'
+            if user && user.joinedWorkshops.includes(workshop._id)
+                button(onclick=`leaveWorkshop('${workshop._id}')`) Leave
+            else
+                button(onclick=`joinWorkshop('${workshop._id}')`) Enroll

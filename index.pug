@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div(id='home-container') 
+    div(id='home-text')
+      h1(style='font-size:calc(15px + 2vw)')= title
+      h3(style='font-size:calc(10px + 1vw)') Welcome #{user ? user.username : 'Guest'} to Raymond's Art gallery! 
+
+      a(href='/gallery', style='text-decoration: underline; font-size:calc(7px + 1vw)') Explore Gallery 

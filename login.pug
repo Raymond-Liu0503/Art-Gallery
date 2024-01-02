@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div(id='login')
+    h1 Login
+    form(action='/login', method='post')
+      label(for='username') Username:
+      input(type='text', name='username', id='username', required)
+      br
+      label(for='password') Password:
+      input(type='password', name='password', id='password', required)
+      br
+      div(style='display: flex; justify-content: space-between; align-items: center; width: 100%; align-self: flex-end; gap: 1rem;')
+        button(type="button", onclick='login()', id='login-button') Login
+        a(href='/signup') Signup
+

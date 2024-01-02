@@ -1,0 +1,82 @@
+extends layout
+
+block content
+    div(id='profile')
+    if(req.session.user.username === req.params.username)
+        h1= `Welcome, ${user.username}!`
+        p= `Account Type: ${user.accountType}`
+
+        div(id='profile-container')
+            // Workshop section for artists
+            
+            if user.accountType === 'artist'
+                div(id='profile-workshop-container')
+                    h3 Workshop Section
+                    p Here you can manage your workshops and creations.
+                    a(href='/workshop/createWorkshop', style='text-decoration:underline;') Manage Workshops
+                    br
+                    h4 Your Workshops
+                    each workshop in workshops
+                        a(href='/workshop/' + workshop._id, style='text-decoration:underline;') #{workshop.Title}
+                    
+
+            // Upgrade to artist account section for patrons
+            div(id='profile-upgrade-container')
+                if user.accountType === 'patron'
+                    h3 Upgrade to Artist Account
+                    p Are you an artist? Upgrade your account to unlock the workshop section.
+                    button(onclick='upgradeAccount()', id='profile-upgrade-button') Upgrade to Artist Account
+                else if user.accountType === 'artist'
+                    h3 Revert to Patron Account
+                    button(onclick='downgradeAccount()' id='profile-downgrade-button') Downgrade to Patron Account
+        
+        h3 Liked Artwork
+        div(id='liked-artwork-container')
+            each artwork in liked
+                div(id='liked-artwork')
+                    img(src=`${artwork.Poster}`, alt="", id='liked-artwork-image') 
+                    br
+                    a(href='/art/' + artwork._id) #{artwork.Title}
+
+        h3 Reviews 
+        div(id='reviews-container')
+            each review in user.reviews
+                div(id='review')
+                    h3= user.username
+                    p= review.review
+        
+        h3 Following 
+        div(id='following-container')
+            each follow in following
+                a(href='/user/' + follow.username, style='text-decoration:underline;') #{follow.username}
+
+        h3= `Artwork by ${artist.username}`
+        div(id='artworks-container')
+            each artwork in artworks
+                div(id='artwork-container')
+                    img(src=`${artwork.Poster}`, alt="")
+                    br
+                    a(href='/art/' + artwork._id) #{artwork.Title}
+    else
+        h1= `Welcome to ${artist.username}'s page!`
+        p= `Followers: ${artist.followers.length}`
+        -console.log(artist)
+        if user && user.following.includes(artist._id)
+            button(onclick=`unfollow('${JSON.stringify(artist)}')`, id='unfollow-button') Unfollow
+        else
+            button(onclick=`follow('${JSON.stringify(artist)}')`, id='follow-button') Follow
+
+        h3= `Workshops by ${artist.username}`
+        if workshops.length === 0
+            p= `No workshops available.`
+        else
+            each workshop in workshops
+                a(href='/workshop/' + workshop._id, style='text-decoration:underline;') #{workshop.Title}
+        h3= `Artwork by ${artist.username}`
+        div(id='artworks-container')
+            each artwork in artworks
+                div(id='artwork-container')
+                    img(src=`${artwork.Poster}`, alt="")
+                    br
+                    a(href='/art/' + artwork._id) #{artwork.Title}
+

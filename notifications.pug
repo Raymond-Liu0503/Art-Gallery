@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div(id='notifications-container')
+    div(id='notifications-text')
+      h1= title
+      p Welcome #{user ? user.username : 'Guest'} to the Notification Center
+
+    if notifications && notifications.length > 0
+      each notification in notifications
+          div(id='notification')
+              p= notification
+    else
+      p No notifications available.

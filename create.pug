@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  div(id="create-artwork")
+    h1 Add a New Artwork
+  
+    form(action="/create/add", method="post")
+      label(for="title") Title:
+      input(type="text", name="title", id="title", required)
+
+      label(for="description") Description:
+      textarea(name="description", id="description", rows="4", required)
+      br
+      label(for="year") Year:
+      input(type="number", name="year", id="year", required)
+
+      label(for="category") Category:
+      input(type="text", name="category", id="category", required)
+
+      label(for="medium") Medium:
+      input(type="text", name="medium", id="medium", required)
+
+      label(for="poster") Poster URL:
+      input(type="text", name="poster", id="poster", required)
+
+      button(type="submit") Add Artwork

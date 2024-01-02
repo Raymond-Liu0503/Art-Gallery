@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  div(id='gallery-container')
+    div(style='margin-left: 1rem; margin-right: 1rem;')
+      h1= title
+      p Welcome #{user ? user.username : 'Guest'} to the Raymond's Art gallery!
+
+    if artworks && Array.isArray(artworks) && artworks.length > 0
+      div(id='artworks-container')
+        each artwork in artworks
+          
+          div(id='artwork-container')
+            a(href="javascript:void(0)", onclick=`goToArtwork('${artwork._id}'); return false;`)
+              div(id='gallery-artwork-image-container')
+                img(src=`${artwork.Poster}`, alt="", id='gallery-artwork-image')
+            a(href="javascript:void(0)", onclick=`goToArtwork('${artwork._id}'); return false;`)
+              h2(style='font-size:calc(10px + 1vw)') #{artwork.Title } - #{artwork.Year}
+            a(href="javascript:void(0)", onclick=`goToArtist('${artwork.Artist}'); return false;`, style='text-decoration: underline; font-size:calc(6px + 1vw)') #{artwork.Artist}
+            if user && user.username !== artwork.Artist 
+              if(artwork.likes == 0)
+                p(style='font-size:calc(5px + 1vw)') Likes: 0
+              else
+                p(style='font-size:calc(5px + 1vw)') Likes: #{artwork.Likes.length}
+              if user && user.liked && user.liked.includes(artwork._id)
+                button(onclick=`unlike('${artwork._id}')`, id='unlike-button') Unlike &lt;/3
+              else
+                button(onclick=`like('${artwork._id}')`, id='like-button') Like &lt;3
+            else
+              p Likes: #{artwork.Likes.length}
+        // Pagination links
+      div.pagination
+        div(style='display: flex; justify-content: center; align-items: center; width: 100%; gap: 1rem; text-align: center; padding-bottom: 20px;')
+          if page > 1
+            a(href=`/gallery?page=${page - 1}&limit=${limit}`, id='gallery-prev-button') Previous
+          if artworks.length === limit
+            a(href=`/gallery?page=${page + 1}&limit=${limit}`, id='gallery-next-button') Next
+
+    else
+      p No artworks available.

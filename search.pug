@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div(id='search-container')
+    h1= title
+    p Welcome #{user ? user.username : 'Guest'} to the Artwork Search
+
+    form(action="/search", method="get")
+      label(for="search") Search:
+      input(type="text", name="search", id="search", required)
+      button(type="submit") Search
+
+    div(id='search-results-container')
+      if results && results.length > 0
+        each artwork in results
+          div.artwork
+            div(id='search-artwork-container')
+              img(src=`${artwork.Poster}`, alt=`${artwork.Title}`, id='search-artwork-image')
+              h2= artwork.Title
+              p Artist: #{artwork.Artist}
+              p Category: #{artwork.Category}
+              a(href=`/art/${artwork._id}`, onclick=`goToArtwork('${artwork._id}'); return false;`, style='text-decoration:underline;') View Details
+
+      // Pagination links
+      div.pagination
+        div(style='display: flex; width: 100%; gap: 1rem; text-align: center; padding-bottom: 20px;')
+          if page > 1
+            a(href=`/search?search=${search}&page=${page - 1}&limit=${limit}` id='gallery-prev-button') Previous
+          if results.length === limit
+            a(href=`/search?search=${search}&page=${page + 1}&limit=${limit}` id='gallery-next-button') Next
+          else
+            p No artworks found.

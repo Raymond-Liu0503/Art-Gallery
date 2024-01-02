@@ -1,0 +1,12 @@
+extends layout
+
+block content 
+    div(id='createWorkshop')
+        h1 Create Workshop
+        form(action='/workshop', method='post')
+            label(for='title') Title:
+            input(type='text', name='title', id='title', required)
+            label(for='description') Description:
+            input(type='text', name='description', id='description', required)
+            br
+            button(type="button", onclick='createWorkshop()') Create Workshop
